@@ -79,12 +79,6 @@ class InternetConnectionCheckerPlus {
       headers: dnsHeaders,
     ),
     AddressCheckOptions(
-      Uri.parse('https://dns.futuredns.me/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
       Uri.parse('https://dns.switch.ch/dns-query').replace(
         queryParameters: dnsParameters,
       ),
