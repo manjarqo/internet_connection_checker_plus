@@ -73,6 +73,24 @@ class InternetConnectionCheckerPlus {
   /// | 1.0.0.1           | https://mozilla.cloudflare-dns.com/dns-query   |
   static final List<AddressCheckOptions> _defaultAddresses = [
     AddressCheckOptions(
+      Uri.parse('https://dns.google/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://dns.comss.one/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://dns.quad9.net/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
       Uri.parse('https://cloudflare-dns.com/dns-query').replace(
         queryParameters: dnsParameters,
       ),
