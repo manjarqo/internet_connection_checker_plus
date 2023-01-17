@@ -65,13 +65,55 @@ class InternetConnectionCheckerPlus {
     'Content-Type': 'application/json',
   };
 
-  /// DNS over HTTPS info:
-  ///
-  /// | Address           | API                                            |
-  /// |:------------------|:-----------------------------------------------|
-  /// | 1.1.1.1           | https://cloudflare-dns.com/dns-query           |
-  /// | 1.0.0.1           | https://mozilla.cloudflare-dns.com/dns-query   |
   static final List<AddressCheckOptions> _defaultAddresses = [
+    AddressCheckOptions(
+      Uri.parse('https://fi.doh.dns.snopyta.org/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://doh-fi.blahdns.com/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://dns.futuredns.me/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://dns.switch.ch/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://dns10.quad9.net/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://doh.opendns.com/dns-query').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://doh.cleanbrowsing.org/doh/adult-filter/').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
+    AddressCheckOptions(
+      Uri.parse('https://doh.cleanbrowsing.org/doh/security-filter/').replace(
+        queryParameters: dnsParameters,
+      ),
+      headers: dnsHeaders,
+    ),
     AddressCheckOptions(
       Uri.parse('https://dns.google/dns-query').replace(
         queryParameters: dnsParameters,
@@ -92,12 +134,6 @@ class InternetConnectionCheckerPlus {
     ),
     AddressCheckOptions(
       Uri.parse('https://cloudflare-dns.com/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://mozilla.cloudflare-dns.com/dns-query').replace(
         queryParameters: dnsParameters,
       ),
       headers: dnsHeaders,
