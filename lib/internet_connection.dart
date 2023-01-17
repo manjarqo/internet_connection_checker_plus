@@ -51,86 +51,12 @@ class InternetConnectionCheckerPlus {
   /// Interval is the time between automatic checks
   static const Duration defaultInterval = Duration(seconds: 5);
 
-  /// The default parameters for DNS lookups
-  static const Map<String, String> dnsParameters = {
-    'name': 'google.com',
-    'type': 'A',
-    'dnssec': '1',
-  };
-
-  /// The default headers for DNS lookups
-  static const Map<String, String> dnsHeaders = {
-    'Accept': 'application/dns-json',
-    'Cache-Control': 'no-cache',
-    'Content-Type': 'application/json',
-  };
-
   static final List<AddressCheckOptions> _defaultAddresses = [
     AddressCheckOptions(
-      Uri.parse('https://fi.doh.dns.snopyta.org/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
+      Uri.parse('https://ya.ru'),
     ),
     AddressCheckOptions(
-      Uri.parse('https://doh-fi.blahdns.com/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://dns.switch.ch/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://dns10.quad9.net/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://doh.opendns.com/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://doh.cleanbrowsing.org/doh/adult-filter/').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://doh.cleanbrowsing.org/doh/security-filter/').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://dns.google/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://dns.comss.one/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://dns.quad9.net/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
-    ),
-    AddressCheckOptions(
-      Uri.parse('https://cloudflare-dns.com/dns-query').replace(
-        queryParameters: dnsParameters,
-      ),
-      headers: dnsHeaders,
+      Uri.parse('https://google.com'),
     ),
   ];
 
@@ -332,8 +258,7 @@ class InternetConnectionCheckerPlus {
   ///
   /// When all the listeners are removed from `onStatusChange`, the internal
   /// timer is cancelled and the stream does not emit events.
-  Stream<InternetConnectionStatus> get onStatusChange =>
-      _statusController.stream;
+  Stream<InternetConnectionStatus> get onStatusChange => _statusController.stream;
 
   /// Returns true if there are any listeners attached to [onStatusChange]
   bool get hasListeners => _statusController.hasListener;
